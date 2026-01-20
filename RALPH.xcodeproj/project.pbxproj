@@ -1,0 +1,425 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BA5A1A2B2C8B4E8A00F1F1F1 /* RALPHApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A1A2A2C8B4E8A00F1F1F1 /* RALPHApp.swift */; };
+		BA5A1A2D2C8B4E8A00F1F1F1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A1A2C2C8B4E8A00F1F1F1 /* ContentView.swift */; };
+		BA5A1A2F2C8B4E8C00F1F1F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA5A1A2E2C8B4E8C00F1F1F1 /* Assets.xcassets */; };
+		BA5A1A322C8B4E8C00F1F1F1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA5A1A312C8B4E8C00F1F1F1 /* Preview Assets.xcassets */; };
+		BA5A1A3A2C8B4F0A00F1F1F1 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A1A392C8B4F0A00F1F1F1 /* UserProfile.swift */; };
+		BA5A1A3C2C8B4F0A00F1F1F1 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A1A3B2C8B4F0A00F1F1F1 /* MenuItem.swift */; };
+		BA5A1A3E2C8B4F0A00F1F1F1 /* MenuSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A1A3D2C8B4F0A00F1F1F1 /* MenuSession.swift */; };
+		BA5A1A402C8B4F0A00F1F1F1 /* SpiderChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A1A3F2C8B4F0A00F1F1F1 /* SpiderChartView.swift */; };
+		BA5A1A422C8B4F0A00F1F1F1 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A1A412C8B4F0A00F1F1F1 /* OnboardingView.swift */; };
+		BA5A1A442C8B4F0A00F1F1F1 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A1A432C8B4F0A00F1F1F1 /* MainTabView.swift */; };
+		BA5A1A462C8B4F0A00F1F1F1 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A1A452C8B4F0A00F1F1F1 /* OpenAIService.swift */; };
+		BA5A1A482C8B4F0A00F1F1F1 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A1A472C8B4F0A00F1F1F1 /* KeychainManager.swift */; };
+		BA5A1A4A2C8B4F0A00F1F1F1 /* RecommendationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A1A492C8B4F0A00F1F1F1 /* RecommendationEngine.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BA5A1A272C8B4E8A00F1F1F1 /* RALPH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RALPH.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA5A1A2A2C8B4E8A00F1F1F1 /* RALPHApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RALPHApp.swift; sourceTree = "<group>"; };
+		BA5A1A2C2C8B4E8A00F1F1F1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BA5A1A2E2C8B4E8C00F1F1F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BA5A1A312C8B4E8C00F1F1F1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BA5A1A392C8B4F0A00F1F1F1 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		BA5A1A3B2C8B4F0A00F1F1F1 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		BA5A1A3D2C8B4F0A00F1F1F1 /* MenuSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSession.swift; sourceTree = "<group>"; };
+		BA5A1A3F2C8B4F0A00F1F1F1 /* SpiderChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpiderChartView.swift; sourceTree = "<group>"; };
+		BA5A1A412C8B4F0A00F1F1F1 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		BA5A1A432C8B4F0A00F1F1F1 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		BA5A1A452C8B4F0A00F1F1F1 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
+		BA5A1A472C8B4F0A00F1F1F1 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		BA5A1A492C8B4F0A00F1F1F1 /* RecommendationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationEngine.swift; sourceTree = "<group>"; };
+		BA5A1A4B2C8B4F0A00F1F1F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA5A1A4C2C8B4F0A00F1F1F1 /* RALPH.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RALPH.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BA5A1A242C8B4E8A00F1F1F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BA5A1A1E2C8B4E8A00F1F1F1 = {
+			isa = PBXGroup;
+			children = (
+				BA5A1A292C8B4E8A00F1F1F1 /* RALPH */,
+				BA5A1A282C8B4E8A00F1F1F1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BA5A1A282C8B4E8A00F1F1F1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA5A1A272C8B4E8A00F1F1F1 /* RALPH.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BA5A1A292C8B4E8A00F1F1F1 /* RALPH */ = {
+			isa = PBXGroup;
+			children = (
+				BA5A1A4B2C8B4F0A00F1F1F1 /* Info.plist */,
+				BA5A1A4C2C8B4F0A00F1F1F1 /* RALPH.entitlements */,
+				BA5A1A2A2C8B4E8A00F1F1F1 /* RALPHApp.swift */,
+				BA5A1A2C2C8B4E8A00F1F1F1 /* ContentView.swift */,
+				BA5A1A382C8B4F0A00F1F1F1 /* Models */,
+				BA5A1A502C8B4F0A00F1F1F1 /* Views */,
+				BA5A1A4D2C8B4F0A00F1F1F1 /* Services */,
+				BA5A1A2E2C8B4E8C00F1F1F1 /* Assets.xcassets */,
+				BA5A1A302C8B4E8C00F1F1F1 /* Preview Content */,
+			);
+			path = RALPH;
+			sourceTree = "<group>";
+		};
+		BA5A1A302C8B4E8C00F1F1F1 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BA5A1A312C8B4E8C00F1F1F1 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BA5A1A382C8B4F0A00F1F1F1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BA5A1A392C8B4F0A00F1F1F1 /* UserProfile.swift */,
+				BA5A1A3B2C8B4F0A00F1F1F1 /* MenuItem.swift */,
+				BA5A1A3D2C8B4F0A00F1F1F1 /* MenuSession.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BA5A1A4D2C8B4F0A00F1F1F1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BA5A1A452C8B4F0A00F1F1F1 /* OpenAIService.swift */,
+				BA5A1A472C8B4F0A00F1F1F1 /* KeychainManager.swift */,
+				BA5A1A492C8B4F0A00F1F1F1 /* RecommendationEngine.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BA5A1A502C8B4F0A00F1F1F1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BA5A1A432C8B4F0A00F1F1F1 /* MainTabView.swift */,
+				BA5A1A3F2C8B4F0A00F1F1F1 /* SpiderChartView.swift */,
+				BA5A1A412C8B4F0A00F1F1F1 /* OnboardingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BA5A1A262C8B4E8A00F1F1F1 /* RALPH */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA5A1A352C8B4E8C00F1F1F1 /* Build configuration list for PBXNativeTarget "RALPH" */;
+			buildPhases = (
+				BA5A1A232C8B4E8A00F1F1F1 /* Sources */,
+				BA5A1A242C8B4E8A00F1F1F1 /* Frameworks */,
+				BA5A1A252C8B4E8A00F1F1F1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RALPH;
+			productName = RALPH;
+			productReference = BA5A1A272C8B4E8A00F1F1F1 /* RALPH.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BA5A1A1F2C8B4E8A00F1F1F1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					BA5A1A262C8B4E8A00F1F1F1 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = BA5A1A222C8B4E8A00F1F1F1 /* Build configuration list for PBXProject "RALPH" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BA5A1A1E2C8B4E8A00F1F1F1;
+			productRefGroup = BA5A1A282C8B4E8A00F1F1F1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BA5A1A262C8B4E8A00F1F1F1 /* RALPH */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BA5A1A252C8B4E8A00F1F1F1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA5A1A322C8B4E8C00F1F1F1 /* Preview Assets.xcassets in Resources */,
+				BA5A1A2F2C8B4E8C00F1F1F1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BA5A1A232C8B4E8A00F1F1F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA5A1A2D2C8B4E8A00F1F1F1 /* ContentView.swift in Sources */,
+				BA5A1A3A2C8B4F0A00F1F1F1 /* UserProfile.swift in Sources */,
+				BA5A1A3C2C8B4F0A00F1F1F1 /* MenuItem.swift in Sources */,
+				BA5A1A3E2C8B4F0A00F1F1F1 /* MenuSession.swift in Sources */,
+				BA5A1A402C8B4F0A00F1F1F1 /* SpiderChartView.swift in Sources */,
+				BA5A1A422C8B4F0A00F1F1F1 /* OnboardingView.swift in Sources */,
+				BA5A1A442C8B4F0A00F1F1F1 /* MainTabView.swift in Sources */,
+				BA5A1A462C8B4F0A00F1F1F1 /* OpenAIService.swift in Sources */,
+				BA5A1A482C8B4F0A00F1F1F1 /* KeychainManager.swift in Sources */,
+				BA5A1A4A2C8B4F0A00F1F1F1 /* RecommendationEngine.swift in Sources */,
+				BA5A1A2B2C8B4E8A00F1F1F1 /* RALPHApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		BA5A1A332C8B4E8C00F1F1F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BA5A1A342C8B4E8C00F1F1F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BA5A1A362C8B4E8C00F1F1F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"RALPH/Preview Content\"";
+				DEVELOPMENT_TEAM = BM62TTT4MY;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = RALPH/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "RALPH needs camera access to scan menu photos for analysis.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "RALPH needs photo library access to select menu photos for analysis.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brettgoodson.ralph;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BA5A1A372C8B4E8C00F1F1F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"RALPH/Preview Content\"";
+				DEVELOPMENT_TEAM = BM62TTT4MY;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = RALPH/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "RALPH needs camera access to scan menu photos for analysis.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "RALPH needs photo library access to select menu photos for analysis.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.brettgoodson.ralph;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BA5A1A222C8B4E8A00F1F1F1 /* Build configuration list for PBXProject "RALPH" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA5A1A332C8B4E8C00F1F1F1 /* Debug */,
+				BA5A1A342C8B4E8C00F1F1F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA5A1A352C8B4E8C00F1F1F1 /* Build configuration list for PBXNativeTarget "RALPH" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA5A1A362C8B4E8C00F1F1F1 /* Debug */,
+				BA5A1A372C8B4E8C00F1F1F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BA5A1A1F2C8B4E8A00F1F1F1 /* Project object */;
+}
