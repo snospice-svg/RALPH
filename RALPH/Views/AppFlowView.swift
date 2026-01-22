@@ -1,4 +1,6 @@
 import SwiftUI
+import UIKit
+import UniformTypeIdentifiers
 
 struct AppFlowView: View {
     @StateObject private var authService = AuthenticationService.shared
@@ -117,6 +119,12 @@ struct MenuAnalysisFlowView: View {
     @State private var showingMenuUpload = true
     @State private var showingRecommendations = false
     @State private var mockRecommendations: [MenuItem] = []
+    @State private var selectedImage: UIImage?
+    @State private var showingImagePicker = false
+    @State private var showingCamera = false
+    @State private var showingDocumentPicker = false
+    @State private var imagePickerSourceType: UIImagePickerController.SourceType = .photoLibrary
+    @State private var hasUploadedFile = false
 
     var body: some View {
         NavigationView {
@@ -134,8 +142,8 @@ struct MenuAnalysisFlowView: View {
 
                         VStack(spacing: 16) {
                             Button(action: {
-                                // Simulate menu analysis
-                                generateMockRecommendations()
+                                imagePickerSourceType = .camera
+                                showingCamera = true
                             }) {
                                 VStack(spacing: 12) {
                                     Image(systemName: "camera.fill")
@@ -151,8 +159,8 @@ struct MenuAnalysisFlowView: View {
                             }
 
                             Button(action: {
-                                // Simulate menu analysis
-                                generateMockRecommendations()
+                                imagePickerSourceType = .photoLibrary
+                                showingImagePicker = true
                             }) {
                                 VStack(spacing: 12) {
                                     Image(systemName: "photo.fill")
@@ -168,7 +176,23 @@ struct MenuAnalysisFlowView: View {
                             }
 
                             Button(action: {
-                                // Skip to mock recommendations for demo
+                                showingDocumentPicker = true
+                            }) {
+                                VStack(spacing: 12) {
+                                    Image(systemName: "doc.fill")
+                                        .font(.system(size: 32))
+                                    Text("Select PDF")
+                                        .font(.headline)
+                                }
+                                .foregroundColor(.blue)
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 24)
+                                .background(Color.blue.opacity(0.1))
+                                .cornerRadius(12)
+                            }
+
+                            Button(action: {
+                                hasUploadedFile = true
                                 generateMockRecommendations()
                             }) {
                                 Text("Use Demo Menu")
@@ -191,10 +215,57 @@ struct MenuAnalysisFlowView: View {
             }
             .padding()
             .navigationBarHidden(true)
+            .sheet(isPresented: $showingImagePicker) {
+                ImagePicker(
+                    selectedImage: $selectedImage,
+                    sourceType: imagePickerSourceType,
+                    onImageSelected: { image in
+                        selectedImage = image
+                        hasUploadedFile = true
+                        processUploadedImage(image)
+                    }
+                )
+            }
+            .fullScreenCover(isPresented: $showingCamera) {
+                ImagePicker(
+                    selectedImage: $selectedImage,
+                    sourceType: .camera,
+                    onImageSelected: { image in
+                        selectedImage = image
+                        hasUploadedFile = true
+                        processUploadedImage(image)
+                    }
+                )
+            }
+            .sheet(isPresented: $showingDocumentPicker) {
+                DocumentPicker(onDocumentSelected: { url in
+                    hasUploadedFile = true
+                    processUploadedDocument(url)
+                })
+            }
+        }
+    }
+
+    private func processUploadedImage(_ image: UIImage) {
+        // TODO: Process the uploaded image with AI
+        // For now, generate mock recommendations after a delay to simulate processing
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            generateMockRecommendations()
+        }
+    }
+
+    private func processUploadedDocument(_ url: URL) {
+        // TODO: Process the uploaded PDF with AI
+        // For now, generate mock recommendations after a delay to simulate processing
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            generateMockRecommendations()
         }
     }
 
     private func generateMockRecommendations() {
+        // Only generate recommendations if a file has been uploaded or demo is used
+        guard hasUploadedFile else { return }
+
         // Mock recommendations for demo
         mockRecommendations = [
             MenuItem(
@@ -351,5 +422,86 @@ struct RecommendationCard: View {
         .padding()
         .background(Color(.systemGray6))
         .cornerRadius(12)
+    }
+}
+
+// MARK: - File Picker Components
+
+struct ImagePicker: UIViewControllerRepresentable {
+    @Binding var selectedImage: UIImage?
+    let sourceType: UIImagePickerController.SourceType
+    let onImageSelected: (UIImage) -> Void
+
+    @Environment(\.dismiss) private var dismiss
+
+    func makeUIViewController(context: Context) -> UIImagePickerController {
+        let picker = UIImagePickerController()
+        picker.sourceType = sourceType
+        picker.delegate = context.coordinator
+        return picker
+    }
+
+    func updateUIViewController(_ uiViewController: UIImagePickerController, context: Context) {}
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+
+    class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+        let parent: ImagePicker
+
+        init(_ parent: ImagePicker) {
+            self.parent = parent
+        }
+
+        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            if let image = info[.originalImage] as? UIImage {
+                parent.selectedImage = image
+                parent.onImageSelected(image)
+            }
+            parent.dismiss()
+        }
+
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            parent.dismiss()
+        }
+    }
+}
+
+struct DocumentPicker: UIViewControllerRepresentable {
+    let onDocumentSelected: (URL) -> Void
+
+    @Environment(\.dismiss) private var dismiss
+
+    func makeUIViewController(context: Context) -> UIDocumentPickerViewController {
+        let picker = UIDocumentPickerViewController(forOpeningContentTypes: [UTType.pdf])
+        picker.delegate = context.coordinator
+        picker.allowsMultipleSelection = false
+        return picker
+    }
+
+    func updateUIViewController(_ uiViewController: UIDocumentPickerViewController, context: Context) {}
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+
+    class Coordinator: NSObject, UIDocumentPickerDelegate {
+        let parent: DocumentPicker
+
+        init(_ parent: DocumentPicker) {
+            self.parent = parent
+        }
+
+        func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+            if let url = urls.first {
+                parent.onDocumentSelected(url)
+            }
+            parent.dismiss()
+        }
+
+        func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+            parent.dismiss()
+        }
     }
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024" height="1024" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A90E2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2E7AE0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded rectangle background -->
+  <rect x="0" y="0" width="1024" height="1024" rx="200" ry="200" fill="url(#bg)" />
+
+  <!-- Large "R" letter -->
+  <text x="512" y="650" font-family="Helvetica, Arial, sans-serif"
+        font-size="600" font-weight="bold"
+        text-anchor="middle" fill="white">R</text>
+
+  <!-- Small fork icon -->
+  <g transform="translate(750, 750)">
+    <!-- Fork tines -->
+    <rect x="0" y="0" width="8" height="40" fill="white" opacity="0.8"/>
+    <rect x="20" y="0" width="8" height="40" fill="white" opacity="0.8"/>
+    <rect x="40" y="0" width="8" height="40" fill="white" opacity="0.8"/>
+    <!-- Fork handle -->
+    <rect x="14" y="35" width="20" height="60" rx="10" ry="10" fill="white" opacity="0.8"/>
+  </g>
+
+  <!-- Small plate icon -->
+  <g transform="translate(150, 150)">
+    <circle cx="50" cy="50" r="45" stroke="white" stroke-width="8" fill="none" opacity="0.6"/>
+    <circle cx="50" cy="50" r="25" stroke="white" stroke-width="4" fill="none" opacity="0.6"/>
+  </g>
+</svg>
