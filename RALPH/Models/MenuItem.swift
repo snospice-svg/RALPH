@@ -1,6 +1,6 @@
 import Foundation
 
-final class MenuItem {
+final class MenuItem: Identifiable {
     var id: UUID
     var categoryType: String // appetizer/main/dessert/drink/other
     var nameOriginal: String
@@ -13,6 +13,10 @@ final class MenuItem {
     var preparationMethods: [String]
     var dietaryTags: [String]
     var estimatedFlavors: [String: Double] // 12 flavor dimensions
+
+    // Additional properties for recommendations
+    var matchScore: Int = 0
+    var spiceLevel: Int = 0
     
     init(
         id: UUID = UUID(),
@@ -26,7 +30,9 @@ final class MenuItem {
         ingredients: [String] = [],
         preparationMethods: [String] = [],
         dietaryTags: [String] = [],
-        estimatedFlavors: [String: Double] = [:]
+        estimatedFlavors: [String: Double] = [:],
+        matchScore: Int = 0,
+        spiceLevel: Int = 0
     ) {
         self.id = id
         self.categoryType = categoryType
@@ -40,6 +46,8 @@ final class MenuItem {
         self.preparationMethods = preparationMethods
         self.dietaryTags = dietaryTags
         self.estimatedFlavors = estimatedFlavors
+        self.matchScore = matchScore
+        self.spiceLevel = spiceLevel
     }
     
     var displayName: String {
@@ -55,6 +63,35 @@ final class MenuItem {
         formatter.numberStyle = .currency
         formatter.currencyCode = currency
         return formatter.string(from: NSNumber(value: price)) ?? "\(price)"
+    }
+
+    // Convenience initializer for recommendations
+    convenience init(
+        id: UUID = UUID(),
+        name: String,
+        description: String,
+        price: String,
+        category: String,
+        dietaryTags: [String] = [],
+        spiceLevel: Int = 0,
+        matchScore: Int = 0
+    ) {
+        // Parse price string to extract numeric value
+        let priceValue = Double(price.replacingOccurrences(of: "[^0-9.]", with: "", options: .regularExpression)) ?? 0.0
+
+        self.init(
+            id: id,
+            categoryType: category.lowercased(),
+            nameOriginal: name,
+            nameTranslated: name,
+            descriptionOriginal: description,
+            descriptionTranslated: description,
+            price: priceValue,
+            currency: "USD",
+            dietaryTags: dietaryTags,
+            matchScore: matchScore,
+            spiceLevel: spiceLevel
+        )
     }
 }
 

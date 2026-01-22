@@ -37,14 +37,26 @@ struct SpiderChartView: View {
                             showingTooltip = showingTooltip == dimension.rawValue ? nil : dimension.rawValue
                         }
                     
-                    // Data point
-                    Circle()
-                        .fill(Color.blue)
-                        .frame(width: 6, height: 6)
-                        .position(
-                            x: 150 + cos(angle) * (value / 100.0 * 100),
-                            y: 150 + sin(angle) * (value / 100.0 * 100)
+                    // Data point (draggable bead)
+                    if isEditing {
+                        DraggableBead(
+                            dimension: dimension,
+                            value: Binding(
+                                get: { editableValues[dimension.rawValue] ?? 50.0 },
+                                set: { editableValues[dimension.rawValue] = $0 }
+                            ),
+                            angle: angle,
+                            center: CGPoint(x: 150, y: 150)
                         )
+                    } else {
+                        Circle()
+                            .fill(Color.blue)
+                            .frame(width: 8, height: 8)
+                            .position(
+                                x: 150 + cos(angle) * (value / 100.0 * 100),
+                                y: 150 + sin(angle) * (value / 100.0 * 100)
+                            )
+                    }
                 }
             }
             .frame(width: 300, height: 300)
@@ -92,47 +104,15 @@ struct SpiderChartView: View {
             }
             .padding(.horizontal)
             
-            // Sliders (when editing)
+            // Instructions when editing
             if isEditing {
-                ScrollView {
-                    LazyVStack(spacing: 16) {
-                        ForEach(SpiderDimension.allCases, id: \.rawValue) { dimension in
-                            VStack(alignment: .leading, spacing: 8) {
-                                HStack {
-                                    Text(dimension.rawValue)
-                                        .font(.subheadline)
-                                        .fontWeight(.medium)
-                                    
-                                    Spacer()
-                                    
-                                    Text("\(Int(editableValues[dimension.rawValue] ?? 50))")
-                                        .font(.subheadline)
-                                        .foregroundColor(.blue)
-                                        .fontWeight(.medium)
-                                }
-                                
-                                Slider(
-                                    value: Binding(
-                                        get: { editableValues[dimension.rawValue] ?? 50.0 },
-                                        set: { editableValues[dimension.rawValue] = $0 }
-                                    ),
-                                    in: 0...100,
-                                    step: 1
-                                )
-                                .tint(.blue)
-                                
-                                Text(dimension.description)
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
-                            }
-                            .padding()
-                            .background(Color(.systemGray6))
-                            .cornerRadius(8)
-                        }
-                    }
+                Text("Drag the beads on each axis to adjust your preferences")
+                    .font(.subheadline)
+                    .foregroundColor(.blue)
+                    .multilineTextAlignment(.center)
                     .padding()
-                }
-                .frame(maxHeight: 400)
+                    .background(Color.blue.opacity(0.1))
+                    .cornerRadius(8)
             }
         }
         .onAppear {
@@ -220,11 +200,10 @@ struct InteractiveSpiderChartView: View {
                     .stroke(Color.blue, lineWidth: 2)
                     .fill(Color.blue.opacity(0.2))
                 
-                // Interactive dimension labels
+                // Interactive dimension labels and draggable beads
                 ForEach(SpiderDimension.allCases, id: \.rawValue) { dimension in
                     let angle = angleForDimension(dimension)
-                    let value = values[dimension.rawValue] ?? 50.0
-                    
+
                     Text(dimension.rawValue)
                         .font(.caption)
                         .fontWeight(.medium)
@@ -237,6 +216,17 @@ struct InteractiveSpiderChartView: View {
                         .onTapGesture {
                             showingTooltip = showingTooltip == dimension.rawValue ? nil : dimension.rawValue
                         }
+
+                    // Draggable bead
+                    DraggableBead(
+                        dimension: dimension,
+                        value: Binding(
+                            get: { values[dimension.rawValue] ?? 50.0 },
+                            set: { values[dimension.rawValue] = $0 }
+                        ),
+                        angle: angle,
+                        center: CGPoint(x: 150, y: 150)
+                    )
                 }
             }
             .frame(width: 300, height: 300)
@@ -259,46 +249,14 @@ struct InteractiveSpiderChartView: View {
                 .transition(.opacity)
             }
             
-            // Sliders
-            ScrollView {
-                LazyVStack(spacing: 16) {
-                    ForEach(SpiderDimension.allCases, id: \.rawValue) { dimension in
-                        VStack(alignment: .leading, spacing: 8) {
-                            HStack {
-                                Text(dimension.rawValue)
-                                    .font(.subheadline)
-                                    .fontWeight(.medium)
-                                
-                                Spacer()
-                                
-                                Text("\(Int(values[dimension.rawValue] ?? 50))")
-                                    .font(.subheadline)
-                                    .foregroundColor(.blue)
-                                    .fontWeight(.medium)
-                            }
-                            
-                            Slider(
-                                value: Binding(
-                                    get: { values[dimension.rawValue] ?? 50.0 },
-                                    set: { values[dimension.rawValue] = $0 }
-                                ),
-                                in: 0...100,
-                                step: 1
-                            )
-                            .tint(.blue)
-                            
-                            Text(dimension.description)
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                        }
-                        .padding()
-                        .background(Color(.systemGray6))
-                        .cornerRadius(8)
-                    }
-                }
+            // Instructions
+            Text("Drag the beads along each axis to adjust your preferences")
+                .font(.subheadline)
+                .foregroundColor(.blue)
+                .multilineTextAlignment(.center)
                 .padding()
-            }
-            .frame(maxHeight: 400)
+                .background(Color.blue.opacity(0.1))
+                .cornerRadius(8)
         }
     }
     
@@ -306,6 +264,73 @@ struct InteractiveSpiderChartView: View {
         let index = SpiderDimension.allCases.firstIndex(of: dimension) ?? 0
         let totalDimensions = SpiderDimension.allCases.count
         return Double(index) * (2 * .pi / Double(totalDimensions)) - .pi / 2
+    }
+}
+
+struct DraggableBead: View {
+    let dimension: SpiderDimension
+    @Binding var value: Double
+    let angle: Double
+    let center: CGPoint
+    @State private var isDragging = false
+
+    var body: some View {
+        let radius = value / 100.0 * 100
+        let position = CGPoint(
+            x: center.x + CGFloat(cos(angle)) * CGFloat(radius),
+            y: center.y + CGFloat(sin(angle)) * CGFloat(radius)
+        )
+
+        Circle()
+            .fill(isDragging ? Color.blue.opacity(0.8) : Color.blue)
+            .frame(width: isDragging ? 16 : 12, height: isDragging ? 16 : 12)
+            .overlay(
+                Circle()
+                    .stroke(Color.white, lineWidth: 2)
+            )
+            .scaleEffect(isDragging ? 1.2 : 1.0)
+            .position(position)
+            .gesture(
+                DragGesture(coordinateSpace: .local)
+                    .onChanged { dragValue in
+                        isDragging = true
+
+                        // Calculate distance from center
+                        let deltaX = dragValue.location.x - center.x
+                        let deltaY = dragValue.location.y - center.y
+                        let distance = sqrt(deltaX * deltaX + deltaY * deltaY)
+
+                        // Project onto the axis line
+                        let projectedDistance = abs(deltaX * CGFloat(cos(angle)) + deltaY * CGFloat(sin(angle)))
+
+                        // Constrain to valid range (0-100 radius)
+                        let clampedDistance = min(max(projectedDistance, 0), 100)
+
+                        // Convert back to value (0-100)
+                        let newValue = (clampedDistance / 100.0) * 100.0
+
+                        // Update value with haptic feedback
+                        if abs(newValue - value) > 2 {
+                            let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+                            impactFeedback.impactOccurred()
+                        }
+
+                        value = newValue
+                    }
+                    .onEnded { _ in
+                        isDragging = false
+
+                        // Snap to nearest 5
+                        let snappedValue = round(value / 5) * 5
+                        withAnimation(.easeOut(duration: 0.2)) {
+                            value = snappedValue
+                        }
+
+                        let impactFeedback = UIImpactFeedbackGenerator(style: .medium)
+                        impactFeedback.impactOccurred()
+                    }
+            )
+            .animation(.easeOut(duration: 0.2), value: isDragging)
     }
 }
 

@@ -20,6 +20,9 @@
 		BA5A1A462C8B4F0A00F1F1F1 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A1A452C8B4F0A00F1F1F1 /* OpenAIService.swift */; };
 		BA5A1A482C8B4F0A00F1F1F1 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A1A472C8B4F0A00F1F1F1 /* KeychainManager.swift */; };
 		BA5A1A4A2C8B4F0A00F1F1F1 /* RecommendationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A1A492C8B4F0A00F1F1F1 /* RecommendationEngine.swift */; };
+		BA5A1A5B2C8B4F0A00F1F1F1 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A1A5A2C8B4F0A00F1F1F1 /* AuthenticationService.swift */; };
+		BA5A1A5D2C8B4F0A00F1F1F1 /* AppFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A1A5C2C8B4F0A00F1F1F1 /* AppFlowView.swift */; };
+		BA5A1A5F2C8B4F0A00F1F1F1 /* ProfileCreationFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5A1A5E2C8B4F0A00F1F1F1 /* ProfileCreationFlowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +42,9 @@
 		BA5A1A492C8B4F0A00F1F1F1 /* RecommendationEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationEngine.swift; sourceTree = "<group>"; };
 		BA5A1A4B2C8B4F0A00F1F1F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA5A1A4C2C8B4F0A00F1F1F1 /* RALPH.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RALPH.entitlements; sourceTree = "<group>"; };
+		BA5A1A5A2C8B4F0A00F1F1F1 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		BA5A1A5C2C8B4F0A00F1F1F1 /* AppFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowView.swift; sourceTree = "<group>"; };
+		BA5A1A5E2C8B4F0A00F1F1F1 /* ProfileCreationFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCreationFlowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,7 @@
 				BA5A1A452C8B4F0A00F1F1F1 /* OpenAIService.swift */,
 				BA5A1A472C8B4F0A00F1F1F1 /* KeychainManager.swift */,
 				BA5A1A492C8B4F0A00F1F1F1 /* RecommendationEngine.swift */,
+				BA5A1A5A2C8B4F0A00F1F1F1 /* AuthenticationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -118,6 +125,8 @@
 				BA5A1A432C8B4F0A00F1F1F1 /* MainTabView.swift */,
 				BA5A1A3F2C8B4F0A00F1F1F1 /* SpiderChartView.swift */,
 				BA5A1A412C8B4F0A00F1F1F1 /* OnboardingView.swift */,
+				BA5A1A5C2C8B4F0A00F1F1F1 /* AppFlowView.swift */,
+				BA5A1A5E2C8B4F0A00F1F1F1 /* ProfileCreationFlowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -202,6 +211,9 @@
 				BA5A1A462C8B4F0A00F1F1F1 /* OpenAIService.swift in Sources */,
 				BA5A1A482C8B4F0A00F1F1F1 /* KeychainManager.swift in Sources */,
 				BA5A1A4A2C8B4F0A00F1F1F1 /* RecommendationEngine.swift in Sources */,
+				BA5A1A5B2C8B4F0A00F1F1F1 /* AuthenticationService.swift in Sources */,
+				BA5A1A5D2C8B4F0A00F1F1F1 /* AppFlowView.swift in Sources */,
+				BA5A1A5F2C8B4F0A00F1F1F1 /* ProfileCreationFlowView.swift in Sources */,
 				BA5A1A2B2C8B4E8A00F1F1F1 /* RALPHApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
