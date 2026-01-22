@@ -125,6 +125,8 @@ struct MenuAnalysisFlowView: View {
     @State private var showingDocumentPicker = false
     @State private var imagePickerSourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var hasUploadedFile = false
+    @State private var showingAlert = false
+    @State private var alertMessage = ""
 
     var body: some View {
         NavigationView {
@@ -142,8 +144,14 @@ struct MenuAnalysisFlowView: View {
 
                         VStack(spacing: 16) {
                             Button(action: {
-                                imagePickerSourceType = .camera
-                                showingCamera = true
+                                print("Camera button tapped") // Debug log
+                                if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                                    imagePickerSourceType = .camera
+                                    showingCamera = true
+                                } else {
+                                    alertMessage = "Camera is not available on this device. Try using the photo library or PDF option instead."
+                                    showingAlert = true
+                                }
                             }) {
                                 VStack(spacing: 12) {
                                     Image(systemName: "camera.fill")
@@ -159,8 +167,14 @@ struct MenuAnalysisFlowView: View {
                             }
 
                             Button(action: {
-                                imagePickerSourceType = .photoLibrary
-                                showingImagePicker = true
+                                print("Photo library button tapped") // Debug log
+                                if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                                    imagePickerSourceType = .photoLibrary
+                                    showingImagePicker = true
+                                } else {
+                                    alertMessage = "Photo library is not available on this device."
+                                    showingAlert = true
+                                }
                             }) {
                                 VStack(spacing: 12) {
                                     Image(systemName: "photo.fill")
@@ -176,6 +190,7 @@ struct MenuAnalysisFlowView: View {
                             }
 
                             Button(action: {
+                                print("PDF button tapped") // Debug log
                                 showingDocumentPicker = true
                             }) {
                                 VStack(spacing: 12) {
@@ -192,13 +207,20 @@ struct MenuAnalysisFlowView: View {
                             }
 
                             Button(action: {
+                                print("Demo menu button tapped") // Debug log
                                 hasUploadedFile = true
                                 generateMockRecommendations()
                             }) {
-                                Text("Use Demo Menu")
-                                    .font(.subheadline)
-                                    .foregroundColor(.blue)
-                                    .padding()
+                                HStack {
+                                    Image(systemName: "play.circle.fill")
+                                    Text("Use Demo Menu")
+                                }
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .frame(maxWidth: .infinity)
+                                .padding()
+                                .background(Color.green)
+                                .cornerRadius(12)
                             }
                         }
                     }
@@ -242,6 +264,11 @@ struct MenuAnalysisFlowView: View {
                     hasUploadedFile = true
                     processUploadedDocument(url)
                 })
+            }
+            .alert("Notice", isPresented: $showingAlert) {
+                Button("OK") { }
+            } message: {
+                Text(alertMessage)
             }
         }
     }
@@ -435,6 +462,7 @@ struct ImagePicker: UIViewControllerRepresentable {
     @Environment(\.dismiss) private var dismiss
 
     func makeUIViewController(context: Context) -> UIImagePickerController {
+        print("Creating ImagePicker with sourceType: \(sourceType)")
         let picker = UIImagePickerController()
         picker.sourceType = sourceType
         picker.delegate = context.coordinator
@@ -474,6 +502,7 @@ struct DocumentPicker: UIViewControllerRepresentable {
     @Environment(\.dismiss) private var dismiss
 
     func makeUIViewController(context: Context) -> UIDocumentPickerViewController {
+        print("Creating DocumentPicker")
         let picker = UIDocumentPickerViewController(forOpeningContentTypes: [UTType.pdf])
         picker.delegate = context.coordinator
         picker.allowsMultipleSelection = false
